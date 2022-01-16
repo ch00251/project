@@ -7,6 +7,7 @@
 		<title>Insert title here</title>
 	</head>
 	<body>
+	<h1>이형주</h1>
 		<jsp:include page = "common/top.jsp" flush = "true"></jsp:include>
 		<h1>Green Footprint</h1> <br>
 		<h2>Let's erase the ecological footprint</h2>
