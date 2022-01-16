@@ -4,16 +4,17 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title></title>
+		<title>GreenFootPrints</title>
 	</head>
 	<body>
-	<h1>이형주</h1>
+		<div class="container">
 		<jsp:include page = "common/top.jsp" flush = "true"></jsp:include>
-		<h1>Green Footprint</h1> <br>
-		<h2>Let's erase the ecological footprint</h2>
-		<h3>yunju</h3>
 		<br>
 		<jsp:include page = "common/menu.jsp" flush = "true"></jsp:include>
-		<hr>
+		<hr style="border:solid 5px #00a000;" width = 90% >
+		<br>
+		<br>
+	    <jsp:include page = "common/search.jsp" flush = "true"></jsp:include>
+	    </div>
 	</body>
 </html>
