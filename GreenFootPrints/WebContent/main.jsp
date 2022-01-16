@@ -10,6 +10,7 @@
 		<jsp:include page = "common/top.jsp" flush = "true"></jsp:include>
 		<h1>Green Footprint</h1> <br>
 		<h2>Let's erase the ecological footprint</h2>
+		<h3>yunju</h3>
 		<br>
 		<jsp:include page = "common/menu.jsp" flush = "true"></jsp:include>
 		<hr>
