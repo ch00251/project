@@ -22,7 +22,7 @@
 
 <div class = "menu">
 	<span class = "menu_1"></span>		
-	<span class = "menu_1"><a href = "">소개</a></span>
+	<span class = "menu_1"><a href = "info.jsp">소개</a></span>
 	<span class = "menu_1"><a href = "">환경인증제품</a></span>
 	<span class = "menu_1"><a href = "">공지사항</a></span>
 	<span class = "menu_1"><a href = "">자유게시판</a></span>
