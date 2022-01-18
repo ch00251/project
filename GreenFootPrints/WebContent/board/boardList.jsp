@@ -8,7 +8,7 @@
 </head>
 <body>
 <div class="container">
-<p>자유게시판 입니다</p>
+<p>자유게시판 목록 입니다</p>
 	<table width="100%" >
 		<thead>
 			<tr>
