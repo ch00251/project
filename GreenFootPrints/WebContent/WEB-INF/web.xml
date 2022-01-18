@@ -9,4 +9,32 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  
+  <servlet>
+		<servlet-name>write</servlet-name>
+		<servlet-class>com.exam.controller.WriteController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>write</servlet-name>
+		<url-pattern>/write.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>bbs</servlet-name>
+		<servlet-class>com.exam.controller.BbsController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>bbs</servlet-name>
+		<url-pattern>/bbs.do</url-pattern>
+	</servlet-mapping>
+		<servlet>
+		<servlet-name>bbsview</servlet-name>
+		<servlet-class>com.exam.controller.BbsViewController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>bbsview</servlet-name>
+		<url-pattern>/bbsview.do</url-pattern>
+	</servlet-mapping>
+  
+  
 </web-app>

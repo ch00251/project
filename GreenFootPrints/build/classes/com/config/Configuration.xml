@@ -6,8 +6,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 
    <properties resource="com/config/jdbc.properties" />   
    <typeAliases>
-    <typeAlias type="com.dto.MemberDTO" alias="MemberDTO"/> 
-  	<typeAlias type="com.dto.BoardsDTO" alias="BoardsDTO"/> 
+  		<typeAlias type="com.dto.BoardsDTO" alias="BoardsDTO"/> 
    </typeAliases>   
 	<environments default="development">
 		<environment id="development">
@@ -21,7 +20,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		</environment>
 	</environments>
 	<mappers>
-		<mapper resource="com/config/MemberMapper.xml" />
 		<mapper resource="com/config/BoardsMapper.xml" />
 	</mappers>
 </configuration>
