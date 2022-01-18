@@ -6,4 +6,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="boardList" resultType="BoardsDTO">
 		select num,userid,title,regdate,viewCount from board_free order by num desc
 	</select>	
+	<insert id="boardAdd" parameterType="BoardsDTO">
+		insert into board_free(num,userid,title,content,regdate,viewCount)
+		values(board_free_seq.nextval,#{userid},#{title},#{content},sysdate,0)
+	</insert>
 </mapper>
