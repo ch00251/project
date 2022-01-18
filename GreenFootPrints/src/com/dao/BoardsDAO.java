@@ -13,4 +13,9 @@ public class BoardsDAO {
 		return list;
 	}
 
+	public int boardAdd(SqlSession session, BoardsDTO dto) {
+		int n=session.insert("BoardsMapper.boardAdd",dto);
+		return n;
+	}
+
 }

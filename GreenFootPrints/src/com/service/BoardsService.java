@@ -22,4 +22,17 @@ public class BoardsService {
 		return list;
 	}
 
+	public int boardAdd(BoardsDTO dto) {
+		SqlSession session=MySqlSessionFactory.getSession();
+		int n=0;
+		try {
+			BoardsDAO dao=new BoardsDAO();
+			n=dao.boardAdd(session,dto);
+			session.commit();
+		}finally {
+			session.close();
+		}
+		return n;
+	}
+
 }
