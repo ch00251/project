@@ -7,7 +7,6 @@
 		<title>GreenFootPrints</title>
 	</head>
 	<body>
-		<p>git 테스트</p>
 		<div class="container">
 		<jsp:include page = "common/top.jsp" flush = "true"></jsp:include>
 		<br>
