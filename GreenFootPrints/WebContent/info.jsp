@@ -17,7 +17,7 @@
 <div class="container">
 <jsp:include page="common/top.jsp" flush="true"/><br>
 <jsp:include page="common/menu.jsp" flush="true"/>
-<hr>
+<hr style="border:solid 5px #00a000;" width = 100% >
 <div class="main">
 	<h4>프로젝트 주제</h4>
 	<p>친환경제품 판별 사이트</p>
