@@ -7,7 +7,7 @@
 		<title>GreenFootPrints</title>
 	</head>
 	<body>
-	<h1>메인.jsp</h1>
+	
 		<div class="container">
 		<jsp:include page = "common/top.jsp" flush = "true"></jsp:include>
 		<br>
