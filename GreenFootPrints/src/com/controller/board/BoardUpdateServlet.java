@@ -1,9 +1,7 @@
 package com.controller.board;
 
 import java.io.IOException;
-import java.util.List;
-
-import javax.servlet.RequestDispatcher;
+import javax.servlet.Servlet;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,26 +13,28 @@ import com.dto.BoardsDTO;
 import com.dto.MemberDTO;
 import com.service.BoardsService;
 
-@WebServlet("/BoardListServlet")
-public class BoardListServlet extends HttpServlet {
-	
+/**
+ * Servlet implementation class BoardUpdateServlet
+ */
+@WebServlet("/BoardUpdateServlet")
+public class BoardUpdateServlet extends HttpServlet implements Servlet {
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session=request.getSession();
-		MemberDTO d=(MemberDTO)session.getAttribute("login");
-		if(d!=null) {
+		MemberDTO dto=(MemberDTO)session.getAttribute("login");
+		if(dto!=null) {
+			request.setCharacterEncoding("utf-8");
+			String userid=request.getParameter("userid");
+			String title=request.getParameter("title");
+			String content=request.getParameter("content");
+			
+			BoardsDTO d=new BoardsDTO();
+			d.setUserid(userid);
+			d.setTitle(title);
+			d.setContent(content);
 			BoardsService service=new BoardsService();
-			BoardsDTO dto=new BoardsDTO();
-			List<BoardsDTO> list=service.boardList(dto);
-			//System.out.println(list);
-			//글 전체 갯수 리턴(페이징 처리사용)
-			int n=service.getCount();
+			int n=service.boardUpdate(d);
 			System.out.println(n);
-			request.setAttribute("boardsList", list);
-			RequestDispatcher dis=request.getRequestDispatcher("boardList.jsp");
-			dis.forward(request, response);
-		}else {
-			session.setAttribute("mesg", "회원만 이용 가능합니다.");
-			response.sendRedirect("LoginUIServlet");
 		}
 	}
 
