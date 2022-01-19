@@ -37,7 +37,7 @@
 		%>
 			<tr>
 				<td><%=num %></td>
-				<td><%=title %></td>
+				<td><a href="BoardRetrieveServlet?num=<%=num%>"><%=title %></a></td>
 				<td><%=userid %></td>
 				<td><%=regdate %></td>
 				<td><%=viewCount %></td>

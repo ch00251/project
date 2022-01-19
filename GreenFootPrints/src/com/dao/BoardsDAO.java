@@ -18,4 +18,9 @@ public class BoardsDAO {
 		return n;
 	}
 
+	public BoardsDTO boardsRetrieve(SqlSession session, int num) {
+		BoardsDTO dto=session.selectOne("BoardsMapper.boardsRetrieve", num);
+		return dto;
+	}
+
 }

@@ -35,4 +35,16 @@ public class BoardsService {
 		return n;
 	}
 
+	public BoardsDTO boardsRetrieve(int num) {
+		BoardsDTO dto=null;
+		SqlSession session=MySqlSessionFactory.getSession();
+		try {
+			BoardsDAO dao=new BoardsDAO();
+			dto=dao.boardsRetrieve(session,num);
+		}finally {
+			session.close();
+		}
+		return dto;
+	}
+
 }

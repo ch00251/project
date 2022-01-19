@@ -10,4 +10,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		insert into board_free(num,userid,title,content,regdate,viewCount)
 		values(board_free_seq.nextval,#{userid},#{title},#{content},sysdate,0)
 	</insert>
+	<select id="boardsRetrieve" resultType="BoardsDTO" parameterType="int">
+		select num,userid,title,content,regdate,viewCount from board_free
+		where num=#{num}
+	</select>
 </mapper>
