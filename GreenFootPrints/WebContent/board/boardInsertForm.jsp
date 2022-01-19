@@ -1,3 +1,4 @@
+<%@page import="com.dto.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -15,12 +16,17 @@
 </style>
 </head>
 <body>
+<%
+	MemberDTO dto=(MemberDTO)session.getAttribute("login");
+	String userid=dto.getUserid();
+	
+%>
 <div class="container">
 	<p>새글 추가 폼 입니다.</p>
 	<form action="BoardInsertServlet" method="post">
 		<div>
 			<label for="writer">작성자</label>
-			<input type="text" id="userid" name="userid" />
+			<input type="text" id="userid" name="userid" value="<%=userid%>" disabled="disabled"/>
 		</div>
 		<div>
 			<label for="title">제목</label>

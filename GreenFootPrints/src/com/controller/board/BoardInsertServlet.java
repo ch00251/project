@@ -32,7 +32,7 @@ public class BoardInsertServlet extends HttpServlet {
 		BoardsService service=new BoardsService();
 		int n=service.boardAdd(dto);
 		System.out.println(n);
-		
+		request.setAttribute("dto", dto);
 		HttpSession session=request.getSession();
 		if(n>0) {
 			session.setAttribute("boardAdd","작성 완료");//게시판 등록 성공 알림
