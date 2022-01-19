@@ -36,7 +36,7 @@ public class LoginServlet extends HttpServlet {
 		//dto가 null이 아닌 경우는 => 회원
 		String nextPage=null;
 		if(dto!=null) {//회원인 경우
-			nextPage="main";//MainServlet
+			nextPage="main.jsp";//MainServlet
 			HttpSession session=request.getSession();
 			session.setAttribute("login", dto);//인증할 때 사용
 			session.setMaxInactiveInterval(60*60);//session을 1시간동안 설정

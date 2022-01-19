@@ -18,10 +18,23 @@
 			}
 		})
 	});
-</script>  
+</script> 
+<style>
+	.login{
+		text-align: center;
+	}
+	#userid{
+		margin-left: 15px;
+	}
+</style> 
+<div class="login">
 <form action="LoginServlet" method="get">
-아이디:<input type="text" name="userid" id="userid"><br>
-비밀번호:<input type="text" name="passwd" id="passwd"><br> 
+	<label title="id">아이디</label>
+	<input type="text" name="userid" id="userid"><br>
+	<label title="pwd">비밀번호</label>
+	<input type="text" name="passwd" id="passwd"><br> 
+<br>
 <input type="submit" value="로그인">
 <input type="reset" value="취소">
 </form>
+</div>
