@@ -8,5 +8,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		insert into member (userid, passwd, username, phone1, phone2, phone3, email1, email2)
     	values( #{userid}, #{passwd}, #{username}, #{phone1}, #{phone2}, #{phone3}, #{email1}, #{email2})
 	</insert>
-	
+	<select id="login" resultType="MemberDTO">
+	select * from member where userid=#{userid} and passwd=#{passwd}	
+	</select>
 </mapper>

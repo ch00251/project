@@ -8,12 +8,6 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<style>
-	.contents{
-		width: 400px;
-		height: 400px;
-	}
-</style>
 <body>
 <div class="container">
 <p>글 상세 페이지</p>
