@@ -35,4 +35,41 @@ public class BoardsService {
 		return n;
 	}
 
+	public BoardsDTO boardsRetrieve(int num) {
+		BoardsDTO dto=null;
+		SqlSession session=MySqlSessionFactory.getSession();
+		try {
+			BoardsDAO dao=new BoardsDAO();
+			dto=dao.boardsRetrieve(session,num);
+		}finally {
+			session.close();
+		}
+		return dto;
+	}
+
+	public int addViewCount(int num) {
+		int n=0;
+		SqlSession session=MySqlSessionFactory.getSession();
+		try {
+			BoardsDAO dao=new BoardsDAO();
+			n=dao.addViewCount(session,num);
+			session.commit();
+		}finally {
+			session.close();
+		}
+		return n;
+	}
+	//글 전체갯수 리턴
+	public int getCount() {
+		int n=0;
+		SqlSession session=MySqlSessionFactory.getSession();
+		try {
+			BoardsDAO dao=new BoardsDAO();
+			n=dao.getCount(session);
+		}finally {
+			session.close();
+		}
+		return n;
+	}
+
 }

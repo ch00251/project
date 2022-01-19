@@ -1,7 +1,6 @@
 package com.controller.board;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,22 +9,27 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.dao.BoardsDAO;
 import com.dto.BoardsDTO;
 import com.service.BoardsService;
 
-@WebServlet("/BoardListServlet")
-public class BoardListServlet extends HttpServlet {
-	
+/**
+ * Servlet implementation class BoardRetrieveServlet
+ */
+@WebServlet("/BoardRetrieveServlet")
+public class BoardRetrieveServlet extends HttpServlet {
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+		int num=Integer.parseInt(request.getParameter("num"));
+		
+		BoardsDTO dto=null;
 		BoardsService service=new BoardsService();
-		BoardsDTO dto=new BoardsDTO();
-		List<BoardsDTO> list=service.boardList(dto);
-		//System.out.println(list);
-		//글 전체 갯수 리턴(페이징 처리사용)
-		int n=service.getCount();
-		System.out.println(n);
-		request.setAttribute("boardsList", list);
-		RequestDispatcher dis=request.getRequestDispatcher("boardList.jsp");
+		dto=service.boardsRetrieve(num);
+		//조회수 1증가
+		int n=service.addViewCount(num);
+		request.setAttribute("dto",dto);
+		RequestDispatcher dis=request.getRequestDispatcher("boardsRetrieve.jsp");
 		dis.forward(request, response);
 	}
 

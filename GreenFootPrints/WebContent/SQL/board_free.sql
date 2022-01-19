@@ -4,7 +4,7 @@ userid varchar2(50) not null,
 title varchar2(100),
 content clob,
 regdate date default sysdate,
-viewCount number,
+viewCount number default 0,
 startRowNum number,
 endRowNum number
 );
