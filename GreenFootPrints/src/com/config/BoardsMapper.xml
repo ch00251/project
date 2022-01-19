@@ -4,7 +4,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="BoardsMapper">
 	<select id="boardList" resultType="BoardsDTO">
-		select num,userid,title,regdate,viewCount from board_free order by num desc
+		<!-- select num,userid,title,regdate,viewCount from board_free order by num desc -->
+		select * from (select result1.*, rownum as rnum from (select num,userid,title,content,regdate,viewCount from board_free order by num desc) result1) 
+		where rnum between #{startRowNum} and #{endRowNum}
 	</select>	
 	<insert id="boardAdd" parameterType="BoardsDTO">
 		insert into board_free(num,userid,title,content,regdate,viewCount)
@@ -17,4 +19,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<update id="addViewCount" parameterType="int">
 		update board_free set viewCount=viewCount+1 where num=#{num}
 	</update>
+	<select id="getCount" resultType="int">
+		select max(rownum) as count from board_free
+	</select>
 </mapper>

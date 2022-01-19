@@ -7,7 +7,16 @@ import org.apache.ibatis.session.SqlSession;
 import com.dto.BoardsDTO;
 
 public class BoardsDAO {
-
+	//페이징 처리 준비
+	private static BoardsDAO dao;
+	
+	public static BoardsDAO getInstance() {
+		if(dao==null) {
+			dao=new BoardsDAO(); 
+		}
+		return dao;
+	}
+	
 	public List<BoardsDTO> boardList(SqlSession session, BoardsDTO dto) {
 		List<BoardsDTO> list=session.selectList("BoardsMapper.boardList",dto);
 		return list;
@@ -25,6 +34,11 @@ public class BoardsDAO {
 
 	public int addViewCount(SqlSession session, int num) {
 		int n=session.update("BoardsMapper.addViewCount", num);
+		return n;
+	}
+
+	public int getCount(SqlSession session) {
+		int n=session.selectOne("BoardsMapper.getCount");
 		return n;
 	}
 

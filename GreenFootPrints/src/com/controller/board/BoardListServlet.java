@@ -20,7 +20,10 @@ public class BoardListServlet extends HttpServlet {
 		BoardsService service=new BoardsService();
 		BoardsDTO dto=new BoardsDTO();
 		List<BoardsDTO> list=service.boardList(dto);
-		System.out.println(list);
+		//System.out.println(list);
+		//글 전체 갯수 리턴(페이징 처리사용)
+		int n=service.getCount();
+		System.out.println(n);
 		request.setAttribute("boardsList", list);
 		RequestDispatcher dis=request.getRequestDispatcher("boardList.jsp");
 		dis.forward(request, response);

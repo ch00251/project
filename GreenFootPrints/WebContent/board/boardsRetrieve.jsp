@@ -8,6 +8,12 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+<style>
+	.contents{
+		width: 400px;
+		height: 400px;
+	}
+</style>
 <body>
 <div class="container">
 <p>글 상세 페이지</p>
@@ -37,7 +43,6 @@
 	</tr>
 	<tr>
 		<th>내용</th>
-		<%-- <td><textarea cols="30" rows="10"><%=content %></textarea></td> --%>
 		<td><div class="contents"><%=content %></div></td>
 	</tr>
 	<tr>
