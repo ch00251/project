@@ -26,6 +26,8 @@ public class BoardRetrieveServlet extends HttpServlet {
 		BoardsDTO dto=null;
 		BoardsService service=new BoardsService();
 		dto=service.boardsRetrieve(num);
+		//조회수 1증가
+		int n=service.addViewCount(num);
 		request.setAttribute("dto",dto);
 		RequestDispatcher dis=request.getRequestDispatcher("boardsRetrieve.jsp");
 		dis.forward(request, response);

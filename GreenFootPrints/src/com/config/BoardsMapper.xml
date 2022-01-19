@@ -14,4 +14,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select num,userid,title,content,regdate,viewCount from board_free
 		where num=#{num}
 	</select>
+	<update id="addViewCount" parameterType="int">
+		update board_free set viewCount=viewCount+1 where num=#{num}
+	</update>
 </mapper>

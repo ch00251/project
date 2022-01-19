@@ -23,4 +23,9 @@ public class BoardsDAO {
 		return dto;
 	}
 
+	public int addViewCount(SqlSession session, int num) {
+		int n=session.update("BoardsMapper.addViewCount", num);
+		return n;
+	}
+
 }

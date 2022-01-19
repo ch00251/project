@@ -47,4 +47,17 @@ public class BoardsService {
 		return dto;
 	}
 
+	public int addViewCount(int num) {
+		int n=0;
+		SqlSession session=MySqlSessionFactory.getSession();
+		try {
+			BoardsDAO dao=new BoardsDAO();
+			n=dao.addViewCount(session,num);
+			session.commit();
+		}finally {
+			session.close();
+		}
+		return n;
+	}
+
 }
