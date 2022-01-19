@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="TrashAddMapper.xml">
+
+	<insert id="trashAdd" parameterType = "TrashAddDTO" >
+		insert into trash 
+		(
+			company, tName, tExp, 
+			tCateEGram1, tCateEGram2, tCateEGram3, tCateEGram4, tCateEGram5, tCateEGram6, tCateEGram7, 
+			tCateNGram1, tCateNGram2, tCateNGram3, tCateNGram4, tCateNGram5, 
+			tScore
+		) 
+		values
+		(
+			#{company}, #{tName}, #{tExp}, 
+			${tCateEGram1}, ${tCateEGram2}, ${tCateEGram3}, ${tCateEGram4}, ${tCateEGram5}, ${tCateEGram6}, ${tCateEGram7}, 
+			${tCateNGram1}, ${tCateNGram2}, ${tCateNGram3}, ${tCateNGram4}, ${tCateNGram5},
+			${tScore}
+		)
+	</insert>
+	
+</mapper>
