@@ -24,9 +24,10 @@
 <div class="container">
 	<p>새글 추가 폼 입니다.</p>
 	<form action="BoardInsertServlet" method="post">
+	<input type="hidden" value="<%=userid %>" name="userid">
 		<div>
 			<label for="writer">작성자</label>
-			<input type="text" id="userid" name="userid" value="<%=userid%>" disabled="disabled"/>
+			<input type="text" id="userid" name="userid" value="<%=userid%>" disabled/>
 		</div>
 		<div>
 			<label for="title">제목</label>
