@@ -11,7 +11,7 @@ public class MemberDAO {
 	public int memberAdd(SqlSession session, MemberDTO dto) {
 		
 		int n = session.insert("MemberMapper.memberAdd", dto);
-		
+		System.out.println(n);
 		return n;
 	}
 

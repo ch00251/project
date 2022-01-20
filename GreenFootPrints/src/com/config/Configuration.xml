@@ -5,10 +5,13 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 <configuration>
 
    <properties resource="com/config/jdbc.properties" />   
+   
    <typeAliases>
-    <typeAlias type="com.dto.MemberDTO" alias="MemberDTO"/> 
-  	<typeAlias type="com.dto.BoardsDTO" alias="BoardsDTO"/> 
+	   <typeAlias type="com.dto.MemberDTO" alias="MemberDTO"/> 
+	   <typeAlias type="com.dto.TrashAddDTO" alias="TrashAddDTO"/> 
+	   
    </typeAliases>   
+   
 	<environments default="development">
 		<environment id="development">
 			<transactionManager type="JDBC" />
@@ -20,10 +23,13 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 			</dataSource>
 		</environment>
 	</environments>
+	
 	<mappers>
 		<mapper resource="com/config/MemberMapper.xml" />
-		<mapper resource="com/config/BoardsMapper.xml" />
+		<mapper resource="com/config/TrashAddMapper.xml" />
+		<mapper resource="com/config/TrashNameCheckMapper.xml" />
 	</mappers>
+	
 </configuration>
 
 

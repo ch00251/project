@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.dto.MemberDTO;
+import com.dto.TrashAddDTO;
 import com.service.MemberService;
+import com.service.TrashAddService;
 
 
 @WebServlet("/MemberAddServlet")
@@ -35,6 +37,8 @@ public class MemberAddServlet extends HttpServlet {
 		String email2 = request.getParameter("email2");
 		
 		MemberDTO dto = new MemberDTO(userid, passwd, username, phone1, phone2, phone3, email1, email2);
+		System.out.println(dto);
+		
 		
 		MemberService service = new MemberService();
 		int n = service.memberAdd(dto);
