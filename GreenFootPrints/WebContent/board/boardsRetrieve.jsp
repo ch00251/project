@@ -8,6 +8,16 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+	.bottom{
+		display: table;
+  		margin-left: auto;
+ 		margin-right: auto;
+	}
+	.bottom .btn{
+		margin:10px;
+	}
+</style>
 </head>
 <body>
 <div class="container">
@@ -45,16 +55,19 @@
 		<td><%=regdate %></td>
 	</tr>
 </table>
+<div class="bottom">
 <%
 	MemberDTO d=(MemberDTO)session.getAttribute("login");
 	String id=d.getUserid();
 	System.out.println(userid);
 	if(id.equals(userid)){ %>
-		<a href="BoardListServlet">목록 보기</a>
-		<a href="boardUpdate.jsp?num=<%=num%>">수정하기</a>
+		<a class="btn btn-outline-dark" href="BoardListServlet">목록 보기</a>
+		<a class="btn btn-outline-dark" href="boardUpdate.jsp?num=<%=num%>">수정하기</a>
+		<a class="btn btn-outline-dark" href="BoardDelServlet?num=<%=num %>">삭제하기</a>
 	<%}else{%>
-		<a href="BoardListServlet">목록 보기</a>
+		<a class="btn btn-outline-dark" href="BoardListServlet">목록 보기</a>
 	<%}%>
+</div>
 </div>
 </body>
 </html>
