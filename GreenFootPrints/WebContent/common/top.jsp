@@ -1,3 +1,4 @@
+<%@page import="com.dto.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <link rel="stylesheet"
@@ -54,7 +55,18 @@
 		<a href=main.jsp><img src="images/title.PNG"></a>
 	</div>
 	<div class = "button" style="float: right;">
+	<%
+		MemberDTO dto=(MemberDTO)session.getAttribute("login");
+		if(dto!=null){
+			String username=dto.getUsername();
+	%>	
+		<a class="btn btn-outline-dark" href = "" style = "float: right;">마이페이지</a> 
+		<a class="btn btn-outline-dark" href = "LogoutServlet" style="float: right;">로그아웃</a>
+	<% 	
+	}else {
+	%>
 		<a class="btn btn-outline-dark" href = "MemberUIServlet" style = "float: right;">회원가입</a> 
-		<a class="btn btn-outline-dark" href = "" style="float: right;">로그인</a>
+		<a class="btn btn-outline-dark" href = "LoginUIServlet" style="float: right;">로그인</a>
+	<%}%>
 	</div>
 </div>
