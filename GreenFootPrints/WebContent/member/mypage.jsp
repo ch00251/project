@@ -143,8 +143,8 @@
 
 <label for="phone">전화번호</label>
 <select name="phone1">
-	<option value="010">010</option>
-	<option value="011" >011</option>
+	<option value="010" <%if(phone1.equals("010")){ %> selected <%} %>>010</option>
+	<option value="011" <%if(phone1.equals("011")){ %> selected <%} %>>011</option>
 </select> -
 <input type="text" name="phone2"  id = "phone2" value="<%=phone2%>"> - <input type="text" name="phone3" value="<%=phone3%>" id = "phone3">
 <br>
@@ -152,9 +152,9 @@
 <input type="text" name="email1" id = "email" value="<%=email1%>"> @
 <input style="margin-right: 5px;" type="text" name="email2" id="emailinfo"  value="<%=email2%>">
 <select id = "emailPortal">
-	<option value="daum.net">daum.net</option>
-	<option value="naver.com">naver.com</option>
-	<option value="gmail.com">google.com</option>
+	<option value="daum.net" <%if(email2.equals("daum.net")){ %> selected <%} %>>daum.net</option>
+	<option value="naver.com" <%if(email2.equals("naver.com")){ %> selected <%} %>>naver.com</option>
+	<option value="gmail.com" <%if(email2.equals("google.com")){ %> selected <%} %>>google.com</option>
 </select>
 <br>
 <div class="bottom">
