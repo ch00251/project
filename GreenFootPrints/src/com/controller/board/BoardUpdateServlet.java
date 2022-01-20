@@ -37,6 +37,7 @@ public class BoardUpdateServlet extends HttpServlet {
 		int n=service.boardUpdate(d);
 		System.out.println("수정갯수:"+n);
 		System.out.println(num);
+		session.setAttribute("updateBoard", "글을 수정했습니다.");
 		response.sendRedirect("BoardRetrieveServlet?num="+num);
 
 		

@@ -13,6 +13,20 @@
 		width: 100%;
 		height: 400px;
 	}
+	#titlelabel{
+		margin-right: 15px;
+	}
+	input{
+		width: 200px;
+	}
+	.bottom{
+		display: table;
+  		margin-left: auto;
+ 		margin-right: auto;
+	}
+	.bottom .btn{
+		margin:10px;
+	}
 </style>
 </head>
 <body>
@@ -30,15 +44,18 @@
 			<input type="text" id="userid" name="userid" value="<%=userid%>" disabled/>
 		</div>
 		<div>
-			<label for="title">제목</label>
+			<label id="titlelabel" for="title">제목</label>
 			<input type="text" id="title" name="title"/>
 		</div>
 		<div>
 			<label for="content">내용</label>
 			<textarea name="content" id="content" cols="30" rows="10"></textarea>
 		</div>
-		<button type="submit" onclick="submitContents(this);">등록</button>
-		<button type="reset">취소</button>
+		<br>
+		<div class="bottom">
+		<button class="btn btn-outline-dark" type="submit" onclick="submitContents(this);">등록</button>
+		<button class="btn btn-outline-dark" type="reset" onclick="location.href='BoardListServlet'">목록으로</button>
+		</div>
 	</form>
 </div>
 <%--
