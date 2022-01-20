@@ -20,4 +20,14 @@ public class MemberDAO {
 		return dto;
 	}
 
+	public MemberDTO mypage(SqlSession session, String userid) {
+		MemberDTO dto=session.selectOne("MemberMapper.mypage",userid);
+		return dto;
+	}
+
+	public int memberUpdate(SqlSession session, MemberDTO mdto) {
+		int n=session.update("MemberMapper.memberUpdate", mdto);
+		return n;
+	}
+
 }
