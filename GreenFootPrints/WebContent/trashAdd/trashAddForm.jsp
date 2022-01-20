@@ -5,8 +5,39 @@
 <script type="text/javascript">
     $(document).ready(
     	function() {
+    		
+				$("#tName").on("keyup",
+					function() {
+						$.ajax({
+							type : "get",
+							url : "TrashNameCheckServlet",
+							dataType : "text",
+							data : {
+								tName : $("#tName").val()
+							},
+							success : function(data) {
+								$("#tNameCheck").text(data);
+								if(data == "중복된 제품 입니다.") {
+									$('#submit').attr('disabled','disabled');
+								}
+								else {
+									$("#submit").removeAttr("disabled");
+								}
+							},
+							error : function() {
+								console.log("error")
+							}
+							
+						})
+						
+					}		
+				)	// 제품 중복 체크 중복될시 저장하기 버튼 잠금 기능 추가
 				
 
+				
+				
+				
+				
 				
 		}	//document.ready 무명함수 끝
     );	//document.ready 끝
@@ -19,8 +50,8 @@
 	<span id = "" style="text-shadow:1px 1px 1px #000;"></span>
 	<br> 
 	제품명
-	<input type="text" id="" placeholder = "제품이름을 적어주세요" name = "tName">
-	<span id = "" style="text-shadow:1px 1px 1px #000;"></span>
+	<input type="text" id="tName" placeholder = "제품이름을 적어주세요" name = "tName">
+	<span id = "tNameCheck" style="text-shadow:1px 1px 1px #000;"></span>
 	<br> 
 	제품 설명
 	<br> 

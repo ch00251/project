@@ -1,6 +1,8 @@
 package com.controller.trash;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import com.dto.TrashAddDTO;
 import com.service.TrashAddService;
+import com.service.TrashNameCheckService;
 
 
 @WebServlet("/TrashAddServlet")
@@ -125,8 +128,10 @@ public class TrashAddServlet extends HttpServlet {
 		
 		
 		
-		TrashAddService service = new TrashAddService();
-		int n = service.trashAdd(dto);
+		TrashAddService service1 = new TrashAddService();
+		int n = service1.trashAdd(dto);
+		
+		
 		
 		
 		
