@@ -6,6 +6,9 @@
     $(document).ready(
     	function() {
     		
+    			
+    			
+    			
 				$("#tName").on("keyup",
 					function() {
 						$.ajax({
@@ -44,69 +47,84 @@
    
     
 </script>    
-<form action="TrashAddServlet" method="get">
-	제조사
-	<input type="text" placeholder = "제조사를 입력하세요" name = "company">
-	<span id = "" style="text-shadow:1px 1px 1px #000;"></span>
-	<br> 
-	제품명
-	<input type="text" id="tName" placeholder = "제품이름을 적어주세요" name = "tName">
-	<span id = "tNameCheck" style="text-shadow:1px 1px 1px #000;"></span>
-	<br> 
-	제품 설명
-	<br> 
-	<textarea placeholder = "제품을 설명해주세요." name = "tExp"></textarea>
-	<br> 
-
+<div style = "text-align: center;">
+	<form action="TrashAddServlet" method="get">
+		제조사
+		<input type="text" placeholder = "제조사를 입력하세요" name = "company">
+		<span id = "" style="text-shadow:1px 1px 1px #000;"></span>
+		<br> 
+		제품명
+		<input type="text" id="tName" placeholder = "제품이름을 적어주세요" name = "tName">
+		<span id = "tNameCheck" style="text-shadow:1px 1px 1px #000;"></span>
+		<br> 
+		제품 설명
+		
+		<textarea placeholder = "제품을 설명해주세요." name = "tExp" ></textarea>
+		<br> 
 	
-	
-	
-	<br>
-	<hr>
-	그나마 괜찮은 쓰레기 <br>
-	<span id = "trashG1">종이</span><input placeholder = "무게를 적어주세요 g단위"></span> <button>투척</button>
-	<input type = "text"  name = "tCateEGram1"  value = "0"> <button>삭제</button>
-	<br>
-	<span id = "trashG2">병</span><input placeholder = "무게를 적어주세요 g단위"></span>  <button>투척</button> 
-	<input type = "text" name = "tCateEGram2" value = "0"> <button>삭제</button>
-	<br>
-	<span id = "trashG3">캔</span><input  placeholder = "무게를 적어주세요 g단위"></span> <button>투척</button> 
-	<input type = "text" name = "tCateEGram3" value = "0"> <button>삭제</button>
-	<br>
-	<span id = "trashG4">고철</span><input  placeholder = "무게를 적어주세요 g단위"></span> <button>투척</button>
-	<input type = "text" name = "tCateEGram4" value = "0"> <button>삭제</button>
-	<br>
-	<span id = "trashG5">의류</span><input  placeholder = "무게를 적어주세요 g단위"></span> <button>투척</button> 
-	<input type = "text" name = "tCateEGram5" value = "0"> <button>삭제</button>
-	<br>
-	<span id = "trashG6">플라스틱</span><input  placeholder = "무게를 적어주세요 g단위"></span> <button>투척</button>
-	<input type = "text" name = "tCateEGram6" value = "0"> <button>삭제</button>
-	<br>
-	<span id = "trashG7">박스</span><input  placeholder = "무게를 적어주세요 g단위"></span> <button>투척</button> 
-	<input type = "text" name = "tCateEGram7" value = "0"> <button>삭제</button>
-	<br>
-	
-	<br>
-	답도 없는 쓰레기 <br>
-	<span id = "trashU1">종이</span><input  placeholder = "무게를 적어주세요 g단위"></span> <button>투척</button>
-	<input type = "text" name = "tCateNGram1" value = "0"> <button>삭제</button>
-	<br>
-	<span id = "trashU2">병</span><input  placeholder = "무게를 적어주세요 g단위"></span> <button>투척</button>
-	<input type = "text" name = "tCateNGram2" value = "0"> <button>삭제</button>
-	<br>
-	<span id = "trashU3">고철</span><input placeholder = "무게를 적어주세요 g단위"></span> <button>투척</button> 
-	<input type = "text" name = "tCateNGram3" value = "0"> <button>삭제</button>
-	<br>
-	<span id = "trashU4">의류</span><input  placeholder = "무게를 적어주세요 g단위"></span> <button>투척</button>
-	<input type = "text" name = "tCateNGram4" value = "0"> <button>삭제</button>
-	<br>
-	<span id = "trashU5">플라스틱</span><input  placeholder = "무게를 적어주세요 g단위"></span> <button>투척</button> 
-	<input type = "text" name = "tCateNGram5" value = "0"> <button>삭제</button>
-	<br>
-	<hr>
-	
-	
-	<input type="submit" value="저장하기" id = "submit">	
-	<input type="reset" value="초기화">
-</form>
-
+		
+		
+		
+		<br>
+		<hr>
+		<h4 style = "color : #34C6BE">그나마 괜찮은 쓰레기</h4>
+		 
+		종이
+		<br>
+		<input type = "text"  name = "tCateEGram1"  value = "0" placeholder = "무게를 적어주세요 g단위" style = "text-align:right;">g</input>&nbsp;&nbsp;<button>초기화</button>
+		<br>
+		 병
+		 <br>
+		<input type = "text" name = "tCateEGram2" value = "0" placeholder = "무게를 적어주세요 g단위" style = "text-align:right;">g</input>&nbsp;&nbsp;<button>초기화</button>
+		<br>
+		캔
+		<br>
+		<input type = "text" name = "tCateEGram3" value = "0" placeholder = "무게를 적어주세요 g단위" style = "text-align:right;">g</input>&nbsp;&nbsp;<button>초기화</button>
+		<br>
+		고철
+		<br>
+		<input type = "text" name = "tCateEGram4" value = "0" placeholder = "무게를 적어주세요 g단위" style = "text-align:right;">g</input>&nbsp;&nbsp;<button>초기화</button>
+		<br>
+		의류
+		<br>
+		<input type = "text" name = "tCateEGram5" value = "0" placeholder = "무게를 적어주세요 g단위" style = "text-align:right;">g</input>&nbsp;&nbsp;<button>초기화</button>
+		<br>
+		플라스틱
+		<br>
+		<input type = "text" name = "tCateEGram6" value = "0" placeholder = "무게를 적어주세요 g단위" style = "text-align:right;">g</input>&nbsp;&nbsp;<button>초기화</button>
+		<br>
+		박스
+		<br>
+		<input type = "text" name = "tCateEGram7" value = "0" placeholder = "무게를 적어주세요 g단위" style = "text-align:right;">g</input>&nbsp;&nbsp;<button>초기화</button>
+		<br>
+		
+		<br>
+		<h4 style = "color : #34C6BE">답도 없는 쓰레기 </h4>
+		<br>
+		종이
+		<br>
+		<input type = "text" name = "tCateNGram1" value = "0" style = "text-align:right;">g</input>&nbsp;&nbsp;<button>초기화</button>
+		<br>
+		병
+		<br>
+		<input type = "text" name = "tCateNGram2" value = "0" style = "text-align:right;">g</input>&nbsp;&nbsp;<button>초기화</button>
+		<br>
+		고철
+		<br>
+		<input type = "text" name = "tCateNGram3" value = "0" style = "text-align:right;">g</input>&nbsp;&nbsp;<button>초기화</button>
+		<br>
+		의류
+		<br>
+		<input type = "text" name = "tCateNGram4" value = "0" style = "text-align:right;">g</input>&nbsp;&nbsp;<button>초기화</button>
+		<br>
+		플라스틱
+		<br>
+		<input type = "text" name = "tCateNGram5" value = "0" style = "text-align:right;">g</input>&nbsp;&nbsp;<button>초기화</button>
+		<br>
+		<hr>
+		
+		
+		<input type="submit" value="저장하기" id = "submit">	
+		<input type="reset" value="초기화">
+	</form>
+</div>
