@@ -14,7 +14,7 @@
   		margin-left: auto;
  		margin-right: auto;
 	}
-	.btn{
+	.bottom .btn{
 		margin:10px;
 	}
 </style>
@@ -65,7 +65,7 @@
 		<a class="btn btn-outline-dark" href="boardUpdate.jsp?num=<%=num%>">수정하기</a>
 		<a class="btn btn-outline-dark" href="BoardDelServlet?num=<%=num %>">삭제하기</a>
 	<%}else{%>
-		<a href="BoardListServlet">목록 보기</a>
+		<a class="btn btn-outline-dark" href="BoardListServlet">목록 보기</a>
 	<%}%>
 </div>
 </div>
