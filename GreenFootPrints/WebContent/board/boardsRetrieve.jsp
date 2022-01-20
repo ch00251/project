@@ -51,7 +51,7 @@
 	System.out.println(userid);
 	if(id.equals(userid)){ %>
 		<a href="BoardListServlet">목록 보기</a>
-		<a href="BoardUpdateServlet">수정하기</a>
+		<a href="boardUpdate.jsp?num=<%=num%>">수정하기</a>
 	<%}else{%>
 		<a href="BoardListServlet">목록 보기</a>
 	<%}%>
