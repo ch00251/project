@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 
 import com.config.MySqlSessionFactory;
 import com.dao.BoardsDAO;
+import com.dao.MemberDAO;
 import com.dto.BoardsDTO;
 
 public class BoardsService {
@@ -66,6 +67,19 @@ public class BoardsService {
 		try {
 			BoardsDAO dao=new BoardsDAO();
 			n=dao.getCount(session);
+		}finally {
+			session.close();
+		}
+		return n;
+	}
+
+	public int boardUpdate(BoardsDTO d) {
+		SqlSession session=MySqlSessionFactory.getSession();
+		int n=0;
+		try {
+			BoardsDAO dao=new BoardsDAO();
+			n=dao.boardUpdate(session,d);
+			session.commit();
 		}finally {
 			session.close();
 		}

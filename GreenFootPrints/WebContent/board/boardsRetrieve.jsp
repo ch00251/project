@@ -1,3 +1,4 @@
+<%@page import="com.dto.MemberDTO"%>
 <%@page import="com.dao.BoardsDAO"%>
 <%@page import="com.dto.BoardsDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -44,7 +45,16 @@
 		<td><%=regdate %></td>
 	</tr>
 </table>
-<a href="BoardListServlet">목록 보기</a>
+<%
+	MemberDTO d=(MemberDTO)session.getAttribute("login");
+	String id=d.getUserid();
+	System.out.println(userid);
+	if(id.equals(userid)){ %>
+		<a href="BoardListServlet">목록 보기</a>
+		<a href="BoardUpdateServlet">수정하기</a>
+	<%}else{%>
+		<a href="BoardListServlet">목록 보기</a>
+	<%}%>
 </div>
 </body>
 </html>

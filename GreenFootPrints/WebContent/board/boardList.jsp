@@ -1,3 +1,4 @@
+<%@page import="com.dto.MemberDTO"%>
 <%@page import="com.config.MySqlSessionFactory"%>
 <%@page import="com.dao.BoardsDAO"%>
 <%@page import="org.apache.ibatis.session.SqlSession"%>
@@ -151,7 +152,12 @@
 				</li>
 			<%} %>
 			<li>
+			<%
+				MemberDTO d=(MemberDTO)session.getAttribute("login");
+				if(d!=null){
+			%>
 				<a id="new" href="BoardUIServlet"class="btn btn-outline-dark">새글 작성</a>
+			<%} %>
 			</li>
 		</ul>
 	</div>
