@@ -177,6 +177,22 @@ public class BbsDao {
 		return bbsDto;
 	}
 	
+	public int del(int bbsId) {
+		con = getConnect();
+		String sql = "DELETE FROM bbs1 WHERE bbsId = ?";
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, bbsId);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(con, pstmt, null);
+		}
+		return result;
+	}
+	
 	
 	
 	

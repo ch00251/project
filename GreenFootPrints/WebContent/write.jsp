@@ -4,6 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
+
+
 <title>게시글 작성</title>
 <style>
 * {
@@ -18,11 +20,11 @@
 
 #wriTitle{
 	text-align: center;
-	background-color: rgb(100, 100, 100);
+	/* background-color: rgb(100,150,100); */
 	width: 800px;
 	height: 20px;
 	padding: 12px 0;
-	color: white;
+	color: black;
 }
 table {
 	width: 840px;
@@ -50,11 +52,12 @@ textarea {
 	width: 100px;
 	padding: 5px 12px;
 	border: none;
-	background-color: rgb(150, 60, 60);
+	background-color: rgb(100,150,100);
 	color: white;
 }
 
 button {
+	width: 100px;
 	padding: 5px 12px;
 	background-color: white;
 	border-color: rgb(180, 180, 180);
@@ -64,10 +67,23 @@ button {
 textarea {
 	resize: none;
 }
+
+
+
+
 </style>
 </head>
+
+
 <body>
+<%-- 
+<div class="container" >
 	
+<jsp:include page="common/top.jsp" flush="true"/><br>
+<jsp:include page="common/menu.jsp" flush="true"/>
+<hr style="border:solid 5px #00a000;" width = "100%" >
+</div>
+ --%>
 	<div class="controller">
 	<div id="wriTitle"><b>게시글 작성</b></div>
 		<form action="write.do" method="post">
@@ -75,13 +91,13 @@ textarea {
 				<tr>
 					<td width="100px">카테고리</td>
 					<td><select name="bbsCategory" id="category" >
-							<option>잡담</option>
-							<option>Java</option>
-							<option>C++</option>
-							<option>Python</option>
-							<option>IDL</option>
-							<option>Fortran</option>
-							<option>기타</option>
+							<option>공지</option>
+							<option>제품</option>
+							<option>브랜드</option>
+							<option>언론</option>
+							<option>미디어</option>
+<!-- 							<option>Fortran</option>
+							<option>기타</option> -->
 					</select></td>
 				</tr>
 				<tr>
@@ -101,14 +117,16 @@ textarea {
 		</form>
 		<div>
 			<a href="bbs.do">
-				<button>게시판</button>
+				<button>목록</button>
 			</a>
+			
 		</div>
 		<div>
 			<a href="main.jsp">
-				<button>홈으로</button>
+				<button>HOME</button>
 			</a>
 		</div>
 	</div>
+
 </body>
 </html>
