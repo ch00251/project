@@ -6,7 +6,9 @@ import org.apache.ibatis.session.SqlSession;
 
 import com.config.MySqlSessionFactory;
 import com.dao.BoardsDAO;
+import com.dao.CommentDAO;
 import com.dto.BoardsDTO;
+import com.dto.CommentDTO;
 
 public class BoardsService {
 
@@ -96,5 +98,17 @@ public class BoardsService {
 			session.close();
 		}
 		return n;
+	}
+
+	public List<CommentDTO> getList(int ref_group) {
+		SqlSession session=MySqlSessionFactory.getSession();
+		List<CommentDTO> list=null;
+		try {
+			CommentDAO dao=new CommentDAO();
+			list=dao.getList(session,ref_group);
+		}finally {
+			session.close();
+		}
+		return list;
 	}
 }
