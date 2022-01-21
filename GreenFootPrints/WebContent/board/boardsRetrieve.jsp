@@ -17,11 +17,24 @@
 	.bottom .btn{
 		margin:10px;
 	}
+	ul{
+		margin:0; 
+		padding:0;
+	}
+	li{
+		display: inline;
+	}
+	th{
+		width: 10%;
+		background-color: #93bf85;
+	}
+	.contents{
+		height: 200px;
+	}
 </style>
 </head>
 <body>
 <div class="container">
-<p>글 상세 페이지</p>
 <%
 	BoardsDTO dto=(BoardsDTO)request.getAttribute("dto");
 	int num=dto.getNum();
@@ -31,30 +44,47 @@
 	String regdate=dto.getRegdate();
 	int viewCount=dto.getViewCount();
 %>
-<table width="90%">
+<p style="display:table;margin-left: auto; margin-right: auto;">글 상세 페이지</p>
+<table width="80%" border="1" style="display:table;margin-left: auto; margin-right: auto;" >
 	<tr>
-		<th>글번호</th>
-		<td><%=num %></td>
+		<th>제목</th>
+		<td><%=title %></td>
 	</tr>
 	<tr>
 		<th>작성자</th>
 		<td><%=userid%></td>
 	</tr>
 	<tr>
-		<th>제목</th>
-		<td><%=title %></td>
-		<th>조회수</th>
-		<td><%=viewCount %></td>
+		<td colspan="2">
+			<ul>
+			  <li>
+			  	<strong>작성일</strong>
+			  	<span><%=regdate %></span>
+			  </li>
+			  <li>
+			  	<strong>조회수</strong>
+			  	<span><%=viewCount %></span>
+			  </li>		  
+			</ul>
+		</td>
 	</tr>
 	<tr>
-		<th>내용</th>
-		<td><div class="contents"><%=content %></div></td>
-	</tr>
-	<tr>
-		<th>등록일</th>
-		<td><%=regdate %></td>
+		<td colspan="2"><div class="contents"><%=content %></div></td>
 	</tr>
 </table>
+<div class="container">
+	<div class="form-group">
+		<form method="post" encType = "multipart/form-data" action="commentAction.jsp?bbsID=<%= userid %>&boardID=<%=userid%>">
+			<table class="table table-striped" style="text-align: center; border: 1px solid #dddddd">
+				<tr>
+					<td style="border-bottom:none;" valign="middle"><br><br><%= userid %></td>
+					<td><input type="text" style="height:100px;" class="form-control" placeholder="상대방을 존중하는 댓글을 남깁시다." name = "commentText"></td>
+					<td><br><br><input type="submit" class="btn-primary pull" value="댓글 작성"></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</div>
 <div class="bottom">
 <%
 	MemberDTO d=(MemberDTO)session.getAttribute("login");
