@@ -6,7 +6,9 @@ import org.apache.ibatis.session.SqlSession;
 
 import com.config.MySqlSessionFactory;
 import com.dao.BoardsDAO;
+import com.dao.CommentDAO;
 import com.dto.BoardsDTO;
+import com.dto.CommentDTO;
 
 public class BoardsService {
 
@@ -72,4 +74,41 @@ public class BoardsService {
 		return n;
 	}
 
+	public int boardUpdate(BoardsDTO d) {
+		SqlSession session=MySqlSessionFactory.getSession();
+		int n=0;
+		try {
+			BoardsDAO dao=new BoardsDAO();
+			n=dao.boardUpdate(session,d);
+			session.commit();
+		}finally {
+			session.close();
+		}
+		return n;
+	}
+
+	public int boardDel(int num) {
+		SqlSession session = MySqlSessionFactory.getSession();
+		int n = 0;
+		try {
+			BoardsDAO dao = new BoardsDAO();
+			n = dao.boardDel(session, num);
+			session.commit();
+		} finally {
+			session.close();
+		}
+		return n;
+	}
+
+	public List<CommentDTO> getList(int ref_group) {
+		SqlSession session=MySqlSessionFactory.getSession();
+		List<CommentDTO> list=null;
+		try {
+			CommentDAO dao=new CommentDAO();
+			list=dao.getList(session,ref_group);
+		}finally {
+			session.close();
+		}
+		return list;
+	}
 }

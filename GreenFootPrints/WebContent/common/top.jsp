@@ -60,8 +60,8 @@
 		if(dto!=null){
 			String username=dto.getUsername();
 	%>	
-		<a class="btn btn-outline-dark" href = "" style = "float: right;">마이페이지</a> 
-		<a class="btn btn-outline-dark" href = "" style="float: right;">로그아웃</a>
+		<a class="btn btn-outline-dark" href = "MyPageServlet" style = "float: right;">마이페이지</a> 
+		<a class="btn btn-outline-dark" href = "LogoutServlet" style="float: right;">로그아웃</a>
 	<% 	
 	}else {
 	%>

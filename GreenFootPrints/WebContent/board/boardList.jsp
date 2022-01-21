@@ -1,3 +1,4 @@
+<%@page import="com.dto.MemberDTO"%>
 <%@page import="com.config.MySqlSessionFactory"%>
 <%@page import="com.dao.BoardsDAO"%>
 <%@page import="org.apache.ibatis.session.SqlSession"%>
@@ -36,6 +37,18 @@
 	#new{
 		font-size: 16px;
 	}
+	table {
+	    width: 100%;
+	    border-top: 1px solid #444444;
+	    border-collapse: collapse;
+	}
+	th, td {
+	    border-bottom: 1px solid #444444;
+	    padding: 10px;
+	}
+	th {
+   		background-color: #93bf85;
+    }
 </style>
 </head>
 <body>
@@ -151,7 +164,12 @@
 				</li>
 			<%} %>
 			<li>
+			<%
+				MemberDTO d=(MemberDTO)session.getAttribute("login");
+				if(d!=null){
+			%>
 				<a id="new" href="BoardUIServlet"class="btn btn-outline-dark">새글 작성</a>
+			<%} %>
 			</li>
 		</ul>
 	</div>

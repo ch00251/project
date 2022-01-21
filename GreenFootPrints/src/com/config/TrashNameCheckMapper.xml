@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="TrashNameCheckMapper">
+
+	<select id="tNameCheck" parameterType = "String" resultType = "int">
+		select count(*) from TRASH
+		where tName = #{ tName }
+	</select>
+	
+</mapper>

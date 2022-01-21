@@ -1,4 +1,4 @@
-<%@page import="com.dto.MemberDTO"%>
+<%@page import="com.dto.BoardsDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -30,30 +30,41 @@
 </style>
 </head>
 <body>
-<%
-	MemberDTO dto=(MemberDTO)session.getAttribute("login");
-	String userid=dto.getUserid();
-	
-%>
 <div class="container">
-	<p>새글 추가 폼 입니다.</p>
-	<form action="BoardInsertServlet" method="post">
-	<input type="hidden" value="<%=userid %>" name="userid">
+	<%
+		BoardsDTO dto=(BoardsDTO)session.getAttribute("dto");
+		System.out.println("dto:"+dto);
+		int num=dto.getNum();
+		String userid=dto.getUserid();
+		String title=dto.getTitle();
+		String content=dto.getContent();
+		String regdate=dto.getRegdate();
+		int viewCount=dto.getViewCount();
+		int startRowNum=dto.getStartRowNum();
+		int endRowNum=dto.getEndRowNum();
+		
+	%>
+	<p>자유게시판 수정폼 입니다.</p>
+	<form action="BoardUpdateServlet" method="post">
+	<input type="hidden" value="<%=num %>" name="num">
+	<input type="hidden" value="<%=regdate %>" name="regdate">
+	<input type="hidden" value="<%=viewCount %>" name="viewCount">
+	<input type="hidden" value="<%=startRowNum %>" name="startRowNum">
+	<input type="hidden" value="<%=endRowNum %>" name="endRowNum">
 		<div>
 			<label for="writer">작성자</label>
-			<input type="text" id="userid" name="userid" value="<%=userid%>" disabled/>
+			<input type="text" id="userid" name="userid" value="<%=userid %>" disabled/>
 		</div>
 		<div>
 			<label id="titlelabel" for="title">제목</label>
-			<input type="text" id="title" name="title"/>
+			<input type="text" id="title" name="title" value="<%=title%>"/>
 		</div>
 		<div>
 			<label for="content">내용</label>
-			<textarea name="content" id="content" cols="30" rows="10"></textarea>
+			<textarea name="content" id="content" cols="30" rows="10"><%=content %></textarea>
 		</div>
-		<br>
 		<div class="bottom">
-		<button class="btn btn-outline-dark" type="submit" onclick="submitContents(this);">등록</button>
+		<button class="btn btn-outline-dark" type="submit" onclick="submitContents(this);">수정</button>
 		<button class="btn btn-outline-dark" type="reset" onclick="location.href='BoardListServlet'">목록으로</button>
 		</div>
 	</form>

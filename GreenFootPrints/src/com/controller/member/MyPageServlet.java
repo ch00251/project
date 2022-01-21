@@ -1,7 +1,6 @@
-package com.controller.board;
+package com.controller.member;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,31 +10,35 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.dto.BoardsDTO;
 import com.dto.MemberDTO;
-import com.service.BoardsService;
+import com.service.MemberService;
 
-@WebServlet("/BoardListServlet")
-public class BoardListServlet extends HttpServlet {
+/**
+ * Servlet implementation class MyPageServlet
+ */
+@WebServlet("/MyPageServlet")
+public class MyPageServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session=request.getSession();
-		MemberDTO d=(MemberDTO)session.getAttribute("login");
-		if(d!=null) {
-			BoardsService service=new BoardsService();
-			BoardsDTO dto=new BoardsDTO();
-			List<BoardsDTO> list=service.boardList(dto);
-			//System.out.println(list);
-			//글 전체 갯수 리턴(페이징 처리사용)
-			int n=service.getCount();
-			System.out.println(n);
-			request.setAttribute("boardsList", list);
-			RequestDispatcher dis=request.getRequestDispatcher("boardList.jsp");
-			dis.forward(request, response);
+		MemberDTO dto=(MemberDTO)session.getAttribute("login");
+		String nextPage=null;
+		if(dto!=null) {
+			String userid=dto.getUserid();
+			
+			MemberService service=new MemberService();
+			MemberDTO mdto=service.mypage(userid); 
+			
+			nextPage="mypage.jsp";//webcontent에 있는 mypage 찾아감
+			session.setAttribute("login",mdto);//최신정보로 다시 덮어씌워줌
+			System.out.println("mypage 이동");
+			
 		}else {
-			session.setAttribute("mesg", "회원만 이용 가능합니다.");
-			response.sendRedirect("LoginUIServlet");
+			nextPage="LoginUIServlet";
+			session.setAttribute("mesg", "로그인해주세요.");
 		}
+		RequestDispatcher dis=request.getRequestDispatcher(nextPage);
+		dis.forward(request, response);
 	}
 
 	/**

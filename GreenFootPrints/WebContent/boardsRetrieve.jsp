@@ -5,6 +5,18 @@
 <head>
 <meta charset="UTF-8">
 <title>자유게시판 상세 화면입니다.</title>
+<%
+	String m=(String)session.getAttribute("updateBoard");
+
+	if(m!=null){//회원가입 정보 있음
+%>		
+	<script type="text/javascript">
+		alert("<%=m%>");
+	</script>
+<%	
+	session.removeAttribute("updateBoard");
+	} 
+%>
 </head>
 <body>
 <div class="container">

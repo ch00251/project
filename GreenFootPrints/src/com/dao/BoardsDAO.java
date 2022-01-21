@@ -42,4 +42,14 @@ public class BoardsDAO {
 		return n;
 	}
 
+	public int boardUpdate(SqlSession session, BoardsDTO d) {
+		int n=session.update("BoardsMapper.boardUpdate", d);
+		return n;
+	}
+
+	public int boardDel(SqlSession session, int num) {
+		int n = session.delete("BoardsMapper.boardDel", num);
+		return n;
+	}
+
 }

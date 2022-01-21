@@ -48,14 +48,14 @@ a:hover {
 BbsDao bbsDao = BbsDao.getInstance();
 List<BbsDto> list = bbsDao.selectList();
 %>
-<div class="container" >
-	
+
+<div class="container" >	
 <jsp:include page="../common/top.jsp" flush="true"/><br>
 <jsp:include page="../common/menu.jsp" flush="true"/>
 <hr style="border:solid 5px #00a000;" width = "100%" >
 <h5 style="text-align:center;">공지사항</h5>
-
-
+</div>
+  
 <div class="controller">
 <table>
 <tr>
