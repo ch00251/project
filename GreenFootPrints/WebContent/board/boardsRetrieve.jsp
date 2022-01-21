@@ -1,3 +1,5 @@
+<%@page import="java.util.List"%>
+<%@page import="com.dto.CommentDTO"%>
 <%@page import="com.dto.MemberDTO"%>
 <%@page import="com.dao.BoardsDAO"%>
 <%@page import="com.dto.BoardsDTO"%>
@@ -14,14 +16,36 @@
   		margin-left: auto;
  		margin-right: auto;
 	}
+	.comments{
+		display: table;
+  		margin-left: auto;
+ 		margin-right: auto;
+	}
 	.bottom .btn{
 		margin:10px;
+	}
+	ul{
+		margin:0; 
+		padding:0;
+	}
+	li{
+		display: inline;
+	}
+	th{
+		width: 10%;
+		background-color: #93bf85;
+	}
+	.contents{
+		height: 200px;
+	}
+	textarea{
+		width: 800px;
+		height: 50px;
 	}
 </style>
 </head>
 <body>
 <div class="container">
-<p>글 상세 페이지</p>
 <%
 	BoardsDTO dto=(BoardsDTO)request.getAttribute("dto");
 	int num=dto.getNum();
@@ -31,30 +55,64 @@
 	String regdate=dto.getRegdate();
 	int viewCount=dto.getViewCount();
 %>
-<table width="90%">
+<p style="display:table; margin-left: auto; margin-right: auto;">글 상세 페이지</p>
+<table width="80%" border="1" style="display:table;margin-left: auto; margin-right: auto;" >
 	<tr>
-		<th>글번호</th>
-		<td><%=num %></td>
+		<th>제목</th>
+		<td><%=title %></td>
 	</tr>
 	<tr>
 		<th>작성자</th>
 		<td><%=userid%></td>
 	</tr>
 	<tr>
-		<th>제목</th>
-		<td><%=title %></td>
-		<th>조회수</th>
-		<td><%=viewCount %></td>
+		<td colspan="2">
+			<ul>
+			  <li>
+			  	<strong>작성일</strong>
+			  	<span><%=regdate %></span>
+			  </li>
+			  <li>
+			  	<strong>조회수</strong>
+			  	<span><%=viewCount %></span>
+			  </li>		  
+			</ul>
+		</td>
 	</tr>
 	<tr>
-		<th>내용</th>
-		<td><div class="contents"><%=content %></div></td>
-	</tr>
-	<tr>
-		<th>등록일</th>
-		<td><%=regdate %></td>
+		<td colspan="2"><div class="contents"><%=content %></div></td>
 	</tr>
 </table>
+<div class="comments">
+	<%
+		List<CommentDTO> list=(List<CommentDTO>)request.getAttribute("cList");
+		System.out.println("clist:"+list);
+		for(int i=0; i<list.size(); i++){
+			CommentDTO d=list.get(i);
+			String writer=d.getWriter();
+			String con=d.getContent();			
+	%>
+	<table>
+		<tr>
+			<th><%=writer %></th>
+			<td><%=con %></td>
+		</tr>
+	</table>
+	<%} %>
+	<!-- 원글에 댓글을 작성할수 있는 폼 -->
+	<div class="comment_form">
+		<form action="CommentInsertServlet" method="post">
+		<input type="hidden" value="<%=userid %>" name="userid">
+		<input type="hidden" value="<%=num %>" name="num">
+			<!-- 댓글의 그룹번호는 원글의 글번호가 된다.  -->
+		<input type="hidden" name="ref_group" value="<%=num%>"/>
+			<!-- 댓글의 대상자는 원글의 작성자가 된다. -->
+		<input type="hidden" name="target_id" value="<%=userid%>"/>
+		<textarea name="content"></textarea>
+		<button style="margin-bottom:40px; " class="btn btn-outline-dark" type="submit">등록</button>
+		</form>
+	</div>
+</div>
 <div class="bottom">
 <%
 	MemberDTO d=(MemberDTO)session.getAttribute("login");

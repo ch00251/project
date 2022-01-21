@@ -10,6 +10,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	   <typeAlias type="com.dto.MemberDTO" alias="MemberDTO"/> 
 	   <typeAlias type="com.dto.TrashAddDTO" alias="TrashAddDTO"/> 
 	   <typeAlias type="com.dto.BoardsDTO" alias="BoardsDTO"/> 
+	   <typeAlias type="com.dto.CommentDTO" alias="CommentDTO"/> 
    </typeAliases>   
    
 	<environments default="development">
@@ -29,6 +30,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<mapper resource="com/config/TrashAddMapper.xml" />
 		<mapper resource="com/config/TrashNameCheckMapper.xml" />
 		<mapper resource="com/config/BoardsMapper.xml" />
+		<mapper resource="com/config/CommentMapper.xml" />
 	</mappers>
 	
 </configuration>
