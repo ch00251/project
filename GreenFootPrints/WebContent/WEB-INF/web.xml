@@ -35,6 +35,15 @@
 		<servlet-name>bbsview</servlet-name>
 		<url-pattern>/bbsview.do</url-pattern>
 	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>bbsdelete</servlet-name>
+		<servlet-class>com.exam.controller.BbsDeleteController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>bbsdelete</servlet-name>
+		<url-pattern>/bbsdelete.do</url-pattern>
+	</servlet-mapping>
   
   
 </web-app>

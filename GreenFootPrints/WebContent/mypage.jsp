@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <%
-	String m=(String)session.getAttribute("boardAdd");
+	String m=(String)session.getAttribute("mesg");
 
 	if(m!=null){//회원가입 정보 있음
 %>		
@@ -14,19 +14,7 @@
 		alert("<%=m%>");
 	</script>
 <%	
-	session.removeAttribute("boardAdd");
-	} 
-%>
-<%
-	String mesg=(String)session.getAttribute("deleteBoard");
-
-	if(mesg!=null){//회원가입 정보 있음
-%>		
-	<script type="text/javascript">
-		alert("<%=mesg%>");
-	</script>
-<%	
-	session.removeAttribute("deleteBoard");
+	session.removeAttribute("mesg");
 	} 
 %>
 </head>
@@ -36,7 +24,7 @@
 <jsp:include page="common/menu.jsp" flush="true"/>
 <hr style="border:solid 5px #00a000;" width = 100% >
 <br>
-<jsp:include page="board/boardList.jsp" flush="true"/>
+<jsp:include page="member/mypage.jsp" flush="true"/>
 </div>
 </body>
 </html>

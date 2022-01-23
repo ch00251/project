@@ -23,14 +23,14 @@ table {
 	border-collapse: collapse;
 }
 th {
-	background-color: rgb(100, 100, 100);
+	background-color: rgb(100,150,100);
 	color: white;
 }
 button {
 	margin: 4px 0;
 	padding: 10px 0;
 	width: 840px;
-	background-color: rgb(255, 80, 80);
+	background-color: rgb(100,150,100);
 	color: white;
 	border: none;
 }
@@ -48,23 +48,30 @@ a:hover {
 BbsDao bbsDao = BbsDao.getInstance();
 List<BbsDto> list = bbsDao.selectList();
 %>
+
+<div class="container" >	
+<jsp:include page="../common/top.jsp" flush="true"/><br>
+<jsp:include page="../common/menu.jsp" flush="true"/>
+<hr style="border:solid 5px #00a000;" width = "100%" >
+<h5 style="text-align:center;">공지사항</h5>
+</div>
+  
 <div class="controller">
 <table>
-<h1>공지사항</h1>
 <tr>
 <th width="100px">카테고리</th>
 <th width="40px">번호</th>
-<th width="150px">제목</th>
-<th>내용</th>
+<th width="350px">제목</th>
+<!-- <th>내용</th> -->
 <th width="100px">작성자</th>
-<th width="150px">날짜</th>
+<th width="100px">날짜</th>
 <th width="40px">조회</th>
 </tr>
 
 
 
 <%
-SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd, hh:mm:ss");
+SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd"); /* , hh:mm:ss */
 int count = 0;
 for (BbsDto b : list) {
 	String stDate = "";
@@ -78,7 +85,7 @@ for (BbsDto b : list) {
 	<td><%=b.getBbsCategory() %></td>
 	<td><%=b.getBbsId() %></td>
 	<td><b><a href="bbsview.do?bbsId=<%=b.getBbsId() %> "><%=b.getBbsTitle() %></a></b></td>
-	<td><%=b.getBbsContent() %></td>
+<%-- 	<td><%=b.getBbsContent() %></td> --%>
 	<td><%=b.getId() %></td>
 	<td><%=stDate %></td>
 	<td><%=b.getBbsHit() %></td>
@@ -95,9 +102,10 @@ System.out.println("현재 게시글 " + count + "개");
 %>
 </table>
 <p>
-<a href="write.jsp"><button>글쓰기</button></a><br />
-<a href="main.jsp"><button>HOME</button></a>
+<a href="write.jsp"><button style="border:solid 2px"> 글쓰기</button></a><br />
+<a href="main.jsp"><button style="border:solid 2px">HOME</button></a>
 </p>
+</div>
 </div>
 </body>
 </html>

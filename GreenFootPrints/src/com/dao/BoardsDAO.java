@@ -47,4 +47,9 @@ public class BoardsDAO {
 		return n;
 	}
 
+	public int boardDel(SqlSession session, int num) {
+		int n = session.delete("BoardsMapper.boardDel", num);
+		return n;
+	}
+
 }
