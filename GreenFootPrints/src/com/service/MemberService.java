@@ -44,6 +44,33 @@ public class MemberService {
 		return count;
 	}
 
+<<<<<<< HEAD
 	
 
+=======
+	public MemberDTO mypage(String userid) {
+		SqlSession session=MySqlSessionFactory.getSession();
+		MemberDTO dto=null;
+		try {
+			MemberDAO dao=new MemberDAO();
+			dto=dao.mypage(session,userid);
+		}finally {
+			session.close();
+		}
+		return dto;
+	}
+
+	public int memberUpdate(MemberDTO mdto) {
+		SqlSession session=MySqlSessionFactory.getSession();
+		int n=0;
+		try {
+			MemberDAO dao=new MemberDAO();
+			n=dao.memberUpdate(session,mdto);
+			session.commit();
+		}finally {
+			session.close();
+		}
+		return n;
+	}
+>>>>>>> branch 'CWC' of https://github.com/ch00251/project.git
 }

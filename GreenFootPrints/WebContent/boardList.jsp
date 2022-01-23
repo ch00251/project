@@ -5,6 +5,30 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<%
+	String m=(String)session.getAttribute("boardAdd");
+
+	if(m!=null){//회원가입 정보 있음
+%>		
+	<script type="text/javascript">
+		alert("<%=m%>");
+	</script>
+<%	
+	session.removeAttribute("boardAdd");
+	} 
+%>
+<%
+	String mesg=(String)session.getAttribute("deleteBoard");
+
+	if(mesg!=null){//회원가입 정보 있음
+%>		
+	<script type="text/javascript">
+		alert("<%=mesg%>");
+	</script>
+<%	
+	session.removeAttribute("deleteBoard");
+	} 
+%>
 </head>
 <body>
 <div class="container">

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="CommentMapper">
+	<select id="getList" parameterType="int" resultType="CommentDTO">
+		SELECT num, writer, content, target_id, ref_group,
+			comment_group, deleted, regdate
+		FROM board_free_comment WHERE ref_group=#{ref_group}
+	</select>
+	<update id="delete" parameterType="int">
+		UPDATE board_free_comment
+		SET deleted='yes'
+		WHERE num=#{num}
+	</update>
+	<insert id="insert" parameterType="CommentDTO">
+		INSERT INTO board_free_comment
+		(num, writer, content, target_id, ref_group, comment_group, regdate)
+		VALUES(#{num}, #{writer}, #{content}, #{target_id}, #{ref_group},
+		#{comment_group}, SYSDATE)
+	</insert>
+	<select id="getSequence" resultType="int">
+		SELECT board_free_comment_seq.NEXTVAL
+		FROM DUAL
+	</select>
+	<update id="update" parameterType="CommentDTO">
+		UPDATE board_cafe_comment
+		SET content=#{content}
+		WHERE num=#{num}
+	</update>
+</mapper>

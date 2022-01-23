@@ -1,7 +1,6 @@
 package com.controller.board;
 
 import java.io.IOException;
-import javax.servlet.Servlet;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,32 +9,38 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.dto.BoardsDTO;
-import com.dto.MemberDTO;
 import com.service.BoardsService;
 
 /**
  * Servlet implementation class BoardUpdateServlet
  */
 @WebServlet("/BoardUpdateServlet")
-public class BoardUpdateServlet extends HttpServlet implements Servlet {
+public class BoardUpdateServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session=request.getSession();
-		MemberDTO dto=(MemberDTO)session.getAttribute("login");
-		if(dto!=null) {
-			request.setCharacterEncoding("utf-8");
-			String userid=request.getParameter("userid");
-			String title=request.getParameter("title");
-			String content=request.getParameter("content");
-			
-			BoardsDTO d=new BoardsDTO();
-			d.setUserid(userid);
-			d.setTitle(title);
-			d.setContent(content);
-			BoardsService service=new BoardsService();
-			int n=service.boardUpdate(d);
-			System.out.println(n);
-		}
+		request.setCharacterEncoding("utf-8");
+		int num=Integer.parseInt(request.getParameter("num"));
+		String userid=request.getParameter("userid");
+		String title=request.getParameter("title");
+		String content=request.getParameter("content");
+		String regdate=request.getParameter("regdate");
+		int viewCount=Integer.parseInt(request.getParameter("viewCount"));
+		int startRowNum=Integer.parseInt(request.getParameter("startRowNum"));
+		int endRowNum=Integer.parseInt(request.getParameter("endRowNum"));
+		System.out.println(num+"\t"+userid+"\t"+title+"\t"+content+"\t"+regdate+"\t"+viewCount+"\t"+startRowNum+"\t"+endRowNum);
+		
+		BoardsDTO d=new BoardsDTO(num, userid, title, content,regdate,viewCount, startRowNum,endRowNum);
+		session.setAttribute("dd", d);
+		 		 
+		BoardsService service=new BoardsService();		
+		int n=service.boardUpdate(d);
+		System.out.println("수정갯수:"+n);
+		System.out.println(num);
+		session.setAttribute("updateBoard", "글을 수정했습니다.");
+		response.sendRedirect("BoardRetrieveServlet?num="+num);
+
+		
 	}
 
 	/**

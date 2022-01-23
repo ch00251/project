@@ -35,7 +35,7 @@ public class BoardInsertServlet extends HttpServlet {
 		request.setAttribute("dto", dto);
 		HttpSession session=request.getSession();
 		if(n>0) {
-			session.setAttribute("boardAdd","작성 완료");//게시판 등록 성공 알림
+			session.setAttribute("boardAdd","글을 추가했습니다.");//게시판 등록 성공 알림
 		};
 		session.setMaxInactiveInterval(60*30);
 		response.sendRedirect("BoardListServlet");

@@ -24,6 +24,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	<update id="boardUpdate" parameterType="BoardsDTO">
 		update board_free set
-		title=#{title}, content=#{content} where userid=#{userid}
+		title=#{title}, content=#{content} where num=#{num}
 	</update>
+	<delete id="boardDel" parameterType="int">
+		delete from board_free where num=#{num}
+	</delete>
 </mapper>

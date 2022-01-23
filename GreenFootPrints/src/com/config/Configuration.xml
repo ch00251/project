@@ -8,7 +8,13 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
    
    <typeAliases>
 	   <typeAlias type="com.dto.MemberDTO" alias="MemberDTO"/> 
+<<<<<<< HEAD
 	   <typeAlias type="com.dto.TrashAddDTO" alias="TrashAddDTO"/>    
+=======
+	   <typeAlias type="com.dto.TrashAddDTO" alias="TrashAddDTO"/> 
+	   <typeAlias type="com.dto.BoardsDTO" alias="BoardsDTO"/> 
+	   <typeAlias type="com.dto.CommentDTO" alias="CommentDTO"/> 
+>>>>>>> branch 'CWC' of https://github.com/ch00251/project.git
    </typeAliases>   
    
 	<environments default="development">
@@ -27,7 +33,12 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<mapper resource="com/config/MemberMapper.xml" />
 		<mapper resource="com/config/TrashAddMapper.xml" />
 		<mapper resource="com/config/TrashNameCheckMapper.xml" />
+<<<<<<< HEAD
 		<mapper resource="com/config/CompareSearchMapper.xml" />
+=======
+		<mapper resource="com/config/BoardsMapper.xml" />
+		<mapper resource="com/config/CommentMapper.xml" />
+>>>>>>> branch 'CWC' of https://github.com/ch00251/project.git
 	</mappers>
 	
 </configuration>
