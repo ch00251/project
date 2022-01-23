@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>Insert title here</title>
+<title>회원 가입</title>
 </head>
 <body>
 	<jsp:include page = "common/top.jsp" flush = "true"></jsp:include>
